@@ -1,4 +1,3 @@
-// 页面滚动效果
 document.addEventListener('DOMContentLoaded', () => {
     // 页面加载完成后隐藏加载动画
     const loader = document.querySelector('.loader');
@@ -7,6 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
             loader.classList.add('hidden');
         }, 500);
     }
+    
+    // 初始化国际化
+    const i18n = new I18n();
+    i18n.init();
     
     // 平滑滚动效果
     const scrollLinks = document.querySelectorAll('a[href^="#"]');

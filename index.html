@@ -6,7 +6,7 @@
     <meta name="description" content="陈建宇的个人主页 - 软件工程师 | 技术爱好者">
     <meta name="keywords" content="陈建宇, 软件工程师, 前端开发, 后端开发, 个人主页">
     <meta name="author" content="陈建宇">
-    <title>陈建宇的个人主页</title>
+    <title data-i18n="pageTitle">陈建宇的个人主页</title> <!-- 添加data-i18n属性 -->
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -20,21 +20,25 @@
         <div class="container">
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#about">关于我</a></li>
-                    <li><a href="#skills">技能专长</a></li>
-                    <li><a href="#projects">项目展示</a></li>
-                    <li><a href="#experience">工作经历</a></li>
-                    <li><a href="#contact">联系我</a></li>
+                    <li><a href="#about" data-i18n="nav.about">关于我</a></li>
+                    <li><a href="#skills" data-i18n="nav.skills">技能专长</a></li>
+                    <li><a href="#projects" data-i18n="nav.projects">项目展示</a></li>
+                    <li><a href="#experience" data-i18n="nav.experience">工作经历</a></li>
+                    <li><a href="#contact" data-i18n="nav.contact">联系我</a></li>
                 </ul>
+                <div class="language-switcher">
+                    <button id="zh-btn" class="lang-btn active">中文</button>
+                    <button id="en-btn" class="lang-btn">English</button>
+                </div>
             </nav>
             <div class="profile">
-                <img src="assets/images/avatar.jpg" alt="个人头像" class="avatar">
-                <h1>陈建宇</h1>
-                <p class="subtitle">软件工程师 | 技术爱好者</p>
+                <img src="assets/images/guile.jpeg" alt="个人头像" class="avatar">
+                <h1 data-i18n="profile.name">陈建宇</h1>
+                <p class="subtitle" data-i18n="profile.title">软件架构师 | 云原生技术专家</p>
                 <div class="social-links">
-                    <a href="https://github.com/chenjianyu" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:your-email@example.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/chenjy16" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="mailto:contact@example.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.zhihu.com/column/c_1301653213972307968" target="_blank"><i class="fab fa-zhihu"></i></a>
                 </div>
             </div>
         </div>
@@ -42,141 +46,170 @@
 
     <section id="about" class="about">
         <div class="container">
-            <h2>关于我</h2>
-            <p>
-                您好！我是陈建宇，一名热爱技术的软件工程师。我擅长Web开发、移动应用开发和云计算技术。
-                我相信技术可以改变世界，并致力于创造有价值的产品和解决方案。
+            <h2 data-i18n="about.title">关于我</h2>
+            <p data-i18n="about.description">
+                一名热爱技术的软件架构师。我擅长云原生技术、分布式系统设计和DevOps实践。
+                拥有丰富的技术管理和架构设计经验。
             </p>
+            <div class="personal-info">
+                <div class="info-item">
+                    <span class="info-label" data-i18n="about.education">学历:</span>
+                    <span class="info-value" data-i18n="about.educationValue">本科</span>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="skills">
+    <!-- 技能部分 -->
+    <section id="skills" class="skills">
         <div class="container">
-            <h2>技能专长</h2>
+            <h2 data-i18n="skills.title">技能专长</h2>
             <div class="skill-categories">
                 <div class="skill-category">
-                    <h3>前端开发</h3>
+                    <h3 data-i18n="skills.programming.title">编程语言</h3>
                     <ul>
-                        <li>HTML5 / CSS3</li>
-                        <li>JavaScript / TypeScript</li>
-                        <li>React / Vue.js</li>
-                        <li>响应式设计</li>
+                        <li data-i18n="skills.programming.items.0">熟悉Java技术体系</li>
+                        <li data-i18n="skills.programming.items.1">掌握Golang语言</li>
+                        <li data-i18n="skills.programming.items.2">掌握Gin, Gorm, Grpc-go等框架</li>
+                        <li data-i18n="skills.programming.items.3">熟悉RocketMQ, Sharding-sphere等中间件</li>
                     </ul>
                 </div>
+                
+                <!-- 添加云原生技术部分 -->
                 <div class="skill-category">
-                    <h3>后端开发</h3>
+                    <h3 data-i18n="skills.cloud.title">云原生技术</h3>
                     <ul>
-                        <li>Node.js</li>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>数据库设计</li>
+                        <li data-i18n="skills.cloud.items.0">熟悉云原生架构，Kubernetes实践经验</li>
+                        <li data-i18n="skills.cloud.items.1">熟悉分布式系统架构设计</li>
+                        <li data-i18n="skills.cloud.items.2">熟悉GitOps相关技术栈</li>
+                        <li data-i18n="skills.cloud.items.3">系统可观测性(IaC, FinOps)实践经验</li>
                     </ul>
                 </div>
+                
+                <!-- 添加移动开发部分 -->
                 <div class="skill-category">
-                    <h3>其他技能</h3>
+                    <h3 data-i18n="skills.mobile.title">移动开发</h3>
                     <ul>
-                        <li>Git版本控制</li>
-                        <li>Docker容器化</li>
-                        <li>CI/CD流程</li>
-                        <li>云服务 (AWS/Azure)</li>
+                        <li data-i18n="skills.mobile.items.0">iOS端独立开发经验</li>
+                        <li data-i18n="skills.mobile.items.1">EdgeBox / PetVital等应用开发经验</li>
+                        <li data-i18n="skills.mobile.items.2">跨平台应用开发</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="projects">
+    <!-- 项目部分 -->
+    <section id="projects" class="projects">
         <div class="container">
-            <h2>项目展示</h2>
+            <h2 data-i18n="projects.title">项目展示</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <h3>项目一</h3>
-                    <p>这是一个使用React和Node.js开发的全栈应用，实现了[项目功能描述]。</p>
+                    <h3 data-i18n="projects.jackery.title">华宝数字化云原生平台</h3>
+                    <p data-i18n="projects.jackery.description">基于K8s云原生技术构建的企业数字化平台，实现了系统可观测性、持续集成部署和资源优化管理。</p>
                     <div class="project-links">
-                        <a href="#" target="_blank">查看项目</a>
-                        <a href="#" target="_blank">源代码</a>
+                        <a href="https://www.jackery.com/" target="_blank" data-i18n="projects.jackery.viewLink">查看相关</a>
+                        <a href="https://github.com/chenjy16" target="_blank" data-i18n="projects.jackery.codeLink">相关代码</a>
                     </div>
                 </div>
+                
+                <!-- 添加Castlery项目 -->
                 <div class="project-card">
-                    <h3>项目二</h3>
-                    <p>基于Python和机器学习算法的数据分析工具，可以[项目功能描述]。</p>
+                    <h3 data-i18n="projects.castlery.title">Castlery家具跨境电商平台</h3>
+                    <p data-i18n="projects.castlery.description">新加坡知名家具跨境电商平台，负责整个供应链系统架构设计和全球部署方案。</p>
                     <div class="project-links">
-                        <a href="#" target="_blank">查看项目</a>
-                        <a href="#" target="_blank">源代码</a>
+                        <a href="#" target="_blank" data-i18n="projects.castlery.viewLink">查看项目</a>
+                        <a href="#" target="_blank" data-i18n="projects.castlery.codeLink">相关代码</a>
                     </div>
                 </div>
+                
+                <!-- 添加平安项目 -->
                 <div class="project-card">
-                    <h3>项目三</h3>
-                    <p>移动应用开发项目，使用Flutter框架实现跨平台功能，包括[项目功能描述]。</p>
+                    <h3 data-i18n="projects.pingan.title">平安智慧养老平台</h3>
+                    <p data-i18n="projects.pingan.description">通过整合线上及线下的资源服务，针对老人的健康、防护、社交和生活需要提供智能综合解决方案。</p>
                     <div class="project-links">
-                        <a href="#" target="_blank">查看项目</a>
-                        <a href="#" target="_blank">源代码</a>
+                        <a href="#" target="_blank" data-i18n="projects.pingan.codeLink">相关代码</a>
+                    </div>
+                </div>
+                
+                <!-- 添加开源项目 -->
+                <div class="project-card">
+                    <h3 data-i18n="projects.opensource.title">个人开源项目</h3>
+                    <p data-i18n="projects.opensource.description">包括多个开源项目和移动应用，如RideFlow和EdgeBox等。</p>
+                    <div class="project-links">
+                        <a href="https://github.com/chenjy16" target="_blank" data-i18n="projects.opensource.githubLink">GitHub</a>
+                        <a href="#" target="_blank" data-i18n="projects.opensource.rideflowLink">RideFlow</a>
+                        <a href="#" target="_blank" data-i18n="projects.opensource.edgeboxLink">EdgeBox</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="experience">
+    <!-- 工作经历部分 -->
+    <section id="experience" class="experience">
         <div class="container">
-            <h2>工作经历</h2>
+            <h2 data-i18n="experience.title">工作经历</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">2021 - 至今</div>
+                    <div class="timeline-date" data-i18n="experience.jobs.1.period">2022/11 - 2023/09</div>
                     <div class="timeline-content">
-                        <h3>高级软件工程师</h3>
-                        <p class="company">ABC科技有限公司</p>
-                        <p>负责公司核心产品的开发和维护，优化系统性能，提升用户体验。</p>
+                        <h3 data-i18n="experience.jobs.1.title">技术架构负责人</h3>
+                        <p class="company" data-i18n="experience.jobs.1.company">华宝新能</p>
+                        <p data-i18n="experience.jobs.1.description">负责公司整个系统基础架构设计，推动技术委员会组织建设并管理日常运作。主导华宝数字化云原生平台建设，推动便携储能产品和移动式家庭储能新品类开发。</p>
                     </div>
                 </div>
+                
                 <div class="timeline-item">
-                    <div class="timeline-date">2018 - 2021</div>
+                    <div class="timeline-date" data-i18n="experience.jobs.2.period">2020/09 - 2022/08</div>
                     <div class="timeline-content">
-                        <h3>软件工程师</h3>
-                        <p class="company">XYZ互联网公司</p>
-                        <p>参与多个Web应用项目的开发，实现前后端功能，解决技术难题。</p>
+                        <h3 data-i18n="experience.jobs.2.title">技术经理</h3>
+                        <p class="company" data-i18n="experience.jobs.2.company">Castlery</p>
+                        <p data-i18n="experience.jobs.2.description">负责公司整个供应链系统架构设计和全球部署方案，推动供应链系统的智能化。制定研发流程，持续集成和持续部署方案设计。</p>
                     </div>
                 </div>
+                
                 <div class="timeline-item">
-                    <div class="timeline-date">2016 - 2018</div>
+                    <div class="timeline-date" data-i18n="experience.jobs.3.period">2018/11 - 2020/07</div>
                     <div class="timeline-content">
-                        <h3>初级开发工程师</h3>
-                        <p class="company">创新科技工作室</p>
-                        <p>参与移动应用和小程序的开发，学习并应用新技术。</p>
+                        <h3 data-i18n="experience.jobs.3.title">资深架构师</h3>
+                        <p class="company" data-i18n="experience.jobs.3.company">深圳平安信息技术有限公司</p>
+                        <p data-i18n="experience.jobs.3.description">负责平安智慧养老平台的C端项目整体架构设计、技术选型及制定开发流程。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date" data-i18n="experience.jobs.4.period">2014/08 - 2018/06</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="experience.jobs.4.title">开发组长</h3>
+                        <p class="company" data-i18n="experience.jobs.4.company">美的电商</p>
+                        <p data-i18n="experience.jobs.4.description">负责电商平台的技术开发和团队管理工作。</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date" data-i18n="experience.jobs.5.period">2011/06 - 2014/08</div>
+                    <div class="timeline-content">
+                        <h3 data-i18n="experience.jobs.5.title">高级开发工程师</h3>
+                        <p class="company" data-i18n="experience.jobs.5.company">苏宁北京研发中心</p>
+                        <p data-i18n="experience.jobs.5.description">负责闪拍项目核心功能模块开发和项目进度管理，开发Dal组件等基础设施。</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="contact">
-        <div class="container">
-            <h2>联系我</h2>
-            <p>如果您对我的工作感兴趣，或者有任何问题，欢迎随时联系我。</p>
-            <!-- 联系部分也需要更新 -->
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:your-email@example.com">your-email@example.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <a href="https://github.com/chenjianyu" target="_blank">github.com/chenjianyu</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a>
-                </div>
-            </div>
-        </div>
-    </section>
+ 
 
+    <!-- 在页面底部添加i18n.js引用 -->
     <footer>
         <div class="container">
-            <p>&copy; 2023 陈建宇. 保留所有权利。</p>
+            <p data-i18n="footer.copyright">&copy; 2025 陈建宇. 保留所有权利。</p>
         </div>
     </footer>
 
+    <!-- 修改加载顺序 -->
+    <script src="assets/js/i18n.js"></script>
     <script src="assets/js/main.js"></script>
-</body>
-</html>
+    </body>
+    </html>

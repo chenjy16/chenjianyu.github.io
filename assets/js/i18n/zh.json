@@ -1,0 +1,129 @@
+{
+  "pageTitle": "陈建宇的个人主页",
+  "nav": {
+    "about": "关于我",
+    "skills": "技能专长",
+    "projects": "项目展示",
+    "experience": "工作经历",
+    "contact": "联系我"
+  },
+  "profile": {
+    "name": "陈建宇",
+    "title": "软件架构师 | 云原生技术专家"
+  },
+  "about": {
+    "title": "关于我",
+    "description": "您好！我是陈建宇，一名热爱技术的软件架构师。我擅长云原生技术、分布式系统设计和DevOps实践。毕业于桂林电子科技大学电子商务专业，拥有丰富的技术管理和架构设计经验。目前担任都匀市好运购电商有限公司的创始人，致力于打造高效、可靠的技术解决方案。",
+    "birthdate": "出生日期:",
+    "education": "学历:",
+    "educationValue": "本科"
+  },
+  "skills": {
+    "title": "技能专长",
+    "programming": {
+      "title": "编程语言",
+      "items": [
+        "熟悉Java技术体系",
+        "掌握Golang语言",
+        "掌握Gin, Gorm, Grpc-go等框架",
+        "熟悉RocketMQ, Sharding-sphere等中间件"
+      ]
+    },
+    "cloud": {
+      "title": "云原生技术",
+      "items": [
+        "熟悉云原生架构，Kubernetes实践经验",
+        "熟悉分布式系统架构设计",
+        "熟悉GitOps相关技术栈",
+        "系统可观测性(IaC, FinOps)实践经验"
+      ]
+    },
+    "mobile": {
+      "title": "移动开发",
+      "items": [
+        "iOS端独立开发经验",
+        "EdgeBox / PetVital等应用开发经验",
+        "跨平台应用开发"
+      ]
+    }
+  },
+  "projects": {
+    "title": "项目展示",
+    "jackery": {
+      "title": "华宝数字化云原生平台",
+      "description": "基于K8s云原生技术构建的企业数字化平台，实现了系统可观测性、持续集成部署和资源优化管理。",
+      "viewLink": "查看相关",
+      "codeLink": "相关代码"
+    },
+    "castlery": {
+      "title": "Castlery家具跨境电商平台",
+      "description": "新加坡知名家具跨境电商平台，负责整个供应链系统架构设计和全球部署方案。",
+      "viewLink": "查看项目",
+      "codeLink": "相关代码"
+    },
+    "pingan": {
+      "title": "平安智慧养老平台",
+      "description": "通过整合线上及线下的资源服务，针对老人的健康、防护、社交和生活需要提供智能综合解决方案。",
+      "codeLink": "相关代码"
+    },
+    "opensource": {
+      "title": "个人开源项目",
+      "description": "包括多个开源项目和移动应用，如RideFlow和EdgeBox等。",
+      "githubLink": "GitHub",
+      "rideflowLink": "RideFlow",
+      "edgeboxLink": "EdgeBox"
+    }
+  },
+  "experience": {
+    "title": "工作经历",
+    "jobs": [
+      {
+        "period": "2023/10 - 至今",
+        "title": "创始人",
+        "company": "都匀市好运购电商有限公司",
+        "description": "负责公司整体技术战略和产品规划，带领团队开发和维护核心业务系统。"
+      },
+      {
+        "period": "2022/11 - 2023/09",
+        "title": "技术架构负责人",
+        "company": "华宝新能",
+        "description": "负责公司整个系统基础架构设计，推动技术委员会组织建设并管理日常运作。主导华宝数字化云原生平台建设，推动便携储能产品和移动式家庭储能新品类开发。"
+      },
+      {
+        "period": "2020/09 - 2022/08",
+        "title": "技术总监",
+        "company": "Castlery",
+        "description": "负责公司整个供应链系统架构设计和全球部署方案，推动供应链系统的智能化。制定研发流程，持续集成和持续部署方案设计。"
+      },
+      {
+        "period": "2018/11 - 2020/07",
+        "title": "架构架构师",
+        "company": "深圳平安信息技术有限公司",
+        "description": "负责平安智慧养老平台的C端项目整体架构设计、技术选型及制定开发流程。"
+      },
+      {
+        "period": "2014/08 - 2018/06",
+        "title": "开发组长",
+        "company": "美的电商",
+        "description": "负责电商平台的技术开发和团队管理工作。"
+      },
+      {
+        "period": "2011/06 - 2014/08",
+        "title": "高级开发工程师",
+        "company": "苏宁北京研发中心",
+        "description": "负责闪拍项目核心功能模块开发和项目进度管理，开发Dal组件等基础设施。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "联系我",
+    "description": "如果您对我的工作感兴趣，或者有任何问题，欢迎随时联系我。",
+    "email": "邮箱",
+    "phone": "电话",
+    "github": "GitHub",
+    "zhihu": "知乎专栏"
+  },
+  "footer": {
+    "copyright": "© 2025 陈建宇. 保留所有权利。"
+  }
+}
