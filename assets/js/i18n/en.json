@@ -53,13 +53,15 @@
       "title": "RideFlow",
       "description": "A smart travel application providing real-time traffic conditions, intelligent navigation, and trip planning features.",
       "viewLink": "View App",
-      "codeLink": "Related Code"
+      "codeLink": "Related Code",
+      "donateLink": "Support Project"
     },
     "edgebox": {
       "title": "EdgeBox",
       "description": "Edge computing toolbox offering device management, data processing, and remote monitoring capabilities.",
       "viewLink": "View App",
-      "codeLink": "Related Code"
+      "codeLink": "Related Code",
+      "donateLink": "Support Project"
     }
   },
   "experience": {
