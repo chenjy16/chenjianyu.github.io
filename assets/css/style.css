@@ -1,0 +1,471 @@
+/* 基础样式 */
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2c3e50;
+    --text-color: #333;
+    --light-text: #666;
+    --background-color: #f9f9f9;
+    --card-background: #fff;
+    --border-color: #eaeaea;
+    --hover-color: #2980b9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--hover-color);
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+section {
+    padding: 60px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* 头部样式 */
+header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 100px 0 60px;
+    text-align: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* 关于我部分 */
+.about {
+    background-color: var(--card-background);
+}
+
+.about p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 技能部分 */
+.skill-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.skill-category {
+    flex: 1;
+    min-width: 250px;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.skill-category:hover {
+    transform: translateY(-5px);
+}
+
+.skill-category h3 {
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 10px;
+}
+
+.skill-category ul {
+    list-style-type: none;
+}
+
+.skill-category li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.skill-category li::before {
+    content: "•";
+    color: var(--primary-color);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* 项目展示部分 */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background-color: var(--card-background);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.project-links a {
+    display: inline-block;
+    padding: 8px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.project-links a:hover {
+    background-color: var(--hover-color);
+}
+
+/* 工作经历部分 */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 120px;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.timeline-date {
+    width: 120px;
+    padding-right: 20px;
+    text-align: right;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.timeline-content {
+    flex: 1;
+    padding-left: 30px;
+    position: relative;
+}
+
+.timeline-content::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: -8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    top: 5px;
+}
+
+.timeline-content h3 {
+    margin-bottom: 5px;
+}
+
+.company {
+    font-style: italic;
+    color: var(--light-text);
+    margin-bottom: 10px;
+}
+
+/* 添加页面加载动画 */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 在现有CSS的末尾添加以下内容 */  <!-- 这行注释应该移除 -->
+
+/* 联系部分样式 */
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--card-background);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* 页脚样式 */
+footer {
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 60px;
+}
+
+/* 返回顶部按钮 */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-3px);
+}
+
+/* 动画效果 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.skill-category, .project-card, .timeline-item {
+    opacity: 0;
+}
+
+.animate {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .skill-categories {
+        flex-direction: column;
+    }
+    
+    .timeline::before {
+        left: 60px;
+    }
+    
+    .timeline-date {
+        width: 60px;
+        font-size: 0.9rem;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    header {
+        padding: 60px 0 40px;
+    }
+    
+    .avatar {
+        width: 120px;
+        height: 120px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    section {
+        padding: 40px 0;
+    }
+    
+    .timeline::before {
+        display: none;
+    }
+    
+    .timeline-item {
+        flex-direction: column;
+    }
+    
+    .timeline-date {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+    
+    .timeline-content {
+        padding-left: 0;
+    }
+    
+    .timeline-content::before {
+        display: none;
+    }
+    
+    .contact-item {
+        width: 100%;
+    }
+}
+
+.main-nav {
+    margin-bottom: 30px;
+}
+
+.main-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}

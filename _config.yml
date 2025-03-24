@@ -1,3 +1,23 @@
-theme: jekyll-theme-minimal
-title: chenjianyu's homepage
-description: Bookmark this to keep an eye on my project updates!
+theme: jekyll-theme-cayman
+title: 陈建宇的个人主页
+description: 软件工程师 | 技术爱好者
+url: "https://chenjianyu.github.io"
+baseurl: ""
+
+# 构建设置
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# 排除文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - .git
+  - .github
