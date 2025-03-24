@@ -57,7 +57,7 @@
     },
     "edgebox": {
       "title": "EdgeBox",
-      "description": "边缘计算工具箱，提供设备管理、数据处理和远程监控功能。",
+      "description": "边缘计算工具箱，提供AI LLM 下载  部署 运行功能。",
       "viewLink": "查看应用",
       "codeLink": "相关代码"
     }
