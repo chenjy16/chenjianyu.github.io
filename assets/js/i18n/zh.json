@@ -1,5 +1,5 @@
 {
-  "pageTitle": "陈建宇的个人主页",
+  "pageTitle": "chenjy的个人主页",
   "nav": {
     "about": "关于我",
     "skills": "技能专长",
@@ -8,7 +8,7 @@
     "contact": "联系我"
   },
   "profile": {
-    "name": "陈建宇",
+    "name": "chenjy",
     "title": "软件架构师 | 云原生技术专家"
   },
   "about": {
@@ -49,29 +49,17 @@
   },
   "projects": {
     "title": "项目展示",
-    "jackery": {
-      "title": "华宝数字化云原生平台",
-      "description": "基于K8s云原生技术构建的企业数字化平台，实现了系统可观测性、持续集成部署和资源优化管理。",
-      "viewLink": "查看相关",
+    "rideflow": {
+      "title": "RideFlow",
+      "description": "一款智能出行应用，提供实时路况、智能导航和行程规划功能。",
+      "viewLink": "查看应用",
       "codeLink": "相关代码"
     },
-    "castlery": {
-      "title": "Castlery家具跨境电商平台",
-      "description": "新加坡知名家具跨境电商平台，负责整个供应链系统架构设计和全球部署方案。",
-      "viewLink": "查看项目",
+    "edgebox": {
+      "title": "EdgeBox",
+      "description": "边缘计算工具箱，提供设备管理、数据处理和远程监控功能。",
+      "viewLink": "查看应用",
       "codeLink": "相关代码"
-    },
-    "pingan": {
-      "title": "平安智慧养老平台",
-      "description": "通过整合线上及线下的资源服务，针对老人的健康、防护、社交和生活需要提供智能综合解决方案。",
-      "codeLink": "相关代码"
-    },
-    "opensource": {
-      "title": "个人开源项目",
-      "description": "包括多个开源项目和移动应用，如RideFlow和EdgeBox等。",
-      "githubLink": "GitHub",
-      "rideflowLink": "RideFlow",
-      "edgeboxLink": "EdgeBox"
     }
   },
   "experience": {

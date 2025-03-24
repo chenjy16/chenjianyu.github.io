@@ -49,29 +49,17 @@
   },
   "projects": {
     "title": "Projects",
-    "jackery": {
-      "title": "Jackery Digital Cloud Native Platform",
-      "description": "An enterprise digital platform built on K8s cloud-native technology, implementing system observability, continuous integration deployment, and resource optimization management.",
-      "viewLink": "View Project",
+    "rideflow": {
+      "title": "RideFlow",
+      "description": "A smart travel application providing real-time traffic conditions, intelligent navigation, and trip planning features.",
+      "viewLink": "View App",
       "codeLink": "Related Code"
     },
-    "castlery": {
-      "title": "Castlery Furniture Cross-border E-commerce Platform",
-      "description": "Singapore's renowned furniture cross-border e-commerce platform. Responsible for the entire supply chain system architecture design and global deployment solutions.",
-      "viewLink": "View Project",
+    "edgebox": {
+      "title": "EdgeBox",
+      "description": "Edge computing toolbox offering device management, data processing, and remote monitoring capabilities.",
+      "viewLink": "View App",
       "codeLink": "Related Code"
-    },
-    "pingan": {
-      "title": "Ping An Smart Elderly Care Platform",
-      "description": "Provides intelligent comprehensive solutions for the health, protection, social, and life needs of the elderly by integrating online and offline resources and services.",
-      "codeLink": "Related Code"
-    },
-    "opensource": {
-      "title": "Personal Open Source Projects",
-      "description": "Includes multiple open source projects and mobile applications, such as RideFlow and EdgeBox.",
-      "githubLink": "GitHub",
-      "rideflowLink": "RideFlow",
-      "edgeboxLink": "EdgeBox"
     }
   },
   "experience": {
