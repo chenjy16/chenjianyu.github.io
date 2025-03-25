@@ -6,78 +6,22 @@
     <meta name="description" content="chenjy的个人主页 - 软件工程师 | 技术爱好者">
     <meta name="keywords" content="chenjy, 软件工程师, 前端开发, 后端开发, 个人主页">
     <meta name="author" content="chenjy">
-    <title data-i18n="pageTitle">chenjy的个人主页</title> <!-- 添加data-i18n属性 -->
+    <title data-i18n="pageTitle">chenjy的个人主页</title>
     <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="loader">
-        <div class="loader-spinner"></div>
-    </div>
-    
     <header>
         <div class="container">
             <nav class="main-nav">
                 <ul>
-                    <li><a href="#skills" data-i18n="nav.skills">技能专长</a></li>
                     <li><a href="#projects" data-i18n="nav.projects">项目展示</a></li>
                     <li><a href="#experience" data-i18n="nav.experience">工作经历</a></li>
                 </ul>
-                <div class="language-switcher">
-                    <button id="zh-btn" class="lang-btn active">中文</button>
-                    <button id="en-btn" class="lang-btn">English</button>
-                </div>
             </nav>
-            <div class="profile">
-                <img src="assets/images/guile.jpeg" alt="个人头像" class="avatar">
-                <h1 data-i18n="profile.name">chenjy</h1>
-                <p class="subtitle" data-i18n="profile.title">软件架构师 | 云原生技术专家</p>
-                <div class="social-links">
-                    <a href="https://github.com/chenjy16" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:chenjy16@example.com"><i class="fas fa-envelope"></i></a>
-                    <a href="https://www.zhihu.com/column/c_1301653213972307968" target="_blank"><i class="fab fa-zhihu"></i></a>
-                </div>
-            </div>
         </div>
     </header>
-    <!-- 技能部分 -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 data-i18n="skills.title">技能专长</h2>
-            <div class="skill-categories">
-                <div class="skill-category">
-                    <h3 data-i18n="skills.programming.title">编程语言</h3>
-                    <ul>
-                        <li data-i18n="skills.programming.items.0">熟悉Java技术体系</li>
-                        <li data-i18n="skills.programming.items.1">掌握Golang语言</li>
-                        <li data-i18n="skills.programming.items.2">掌握Gin, Gorm, Grpc-go等框架</li>
-                        <li data-i18n="skills.programming.items.3">熟悉RocketMQ, Sharding-sphere等中间件</li>
-                    </ul>
-                </div>
-                
-                <!-- 添加云原生技术部分 -->
-                <div class="skill-category">
-                    <h3 data-i18n="skills.cloud.title">云原生技术</h3>
-                    <ul>
-                        <li data-i18n="skills.cloud.items.0">熟悉云原生架构，Kubernetes实践经验</li>
-                        <li data-i18n="skills.cloud.items.1">熟悉分布式系统架构设计</li>
-                        <li data-i18n="skills.cloud.items.2">熟悉GitOps相关技术栈</li>
-                        <li data-i18n="skills.cloud.items.3">系统可观测性(IaC, FinOps)实践经验</li>
-                    </ul>
-                </div>
-                
-                <!-- 添加移动开发部分 -->
-                <div class="skill-category">
-                    <h3 data-i18n="skills.mobile.title">个人独立开发经验</h3>
-                    <ul>
-                        <li data-i18n="skills.mobile.items.0">EdgeBox</li>
-                        <li data-i18n="skills.mobile.items.1">PetVital</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- 项目部分 -->
     <section id="projects" class="projects">
@@ -107,7 +51,6 @@
         </div>
     </section>
 
-    <!-- 项目详情弹窗 (移除重复的注释) -->
     <!-- 项目详情弹窗 -->
     <div id="project-modal" class="modal">
         <div class="modal-content">
@@ -190,8 +133,6 @@
         </div>
     </section>
 
- 
-
     <!-- 在页面底部添加i18n.js引用 -->
     <footer>
         <div class="container">
@@ -207,7 +148,6 @@
                 const i18n = new I18n();
                 await i18n.init();
                 
-                // Modify dynamic script loading to use a more secure approach
                 const scripts = [
                     'assets/js/project-modal.js',
                     'assets/js/main.js'
@@ -219,13 +159,11 @@
                         script.src = src;
                         script.onload = resolve;
                         script.onerror = reject;
-                        // Add nonce or integrity attributes if you have them
                         document.body.appendChild(script);
                     });
                 }
             } catch (error) {
                 console.error('Failed to initialize:', error);
-                // 添加用户友好的错误提示
                 const errorMessage = document.createElement('div');
                 errorMessage.style.position = 'fixed';
                 errorMessage.style.top = '50%';
@@ -245,11 +183,10 @@
                 `;
                 document.body.appendChild(errorMessage);
                 
-                // 紧急恢复机制
                 document.documentElement.lang = 'zh';
                 document.title = 'chenjy的个人主页';
             }
         });
     </script>
-    </body>
-    </html>
+</body>
+</html>
