@@ -147,28 +147,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 打开项目模态框
 function openProjectModal(projectId) {
-    // 获取模态框元素
     const modal = document.getElementById('project-modal');
     const modalTitle = document.getElementById('modal-title');
     
-    // 获取当前语言
     const currentLang = document.documentElement.lang || 'zh';
     const lang = currentLang.startsWith('zh') ? 'zh' : 'en';
     
-    // 获取项目数据
     if (projectData && projectData[projectId] && projectData[projectId][lang]) {
         const project = projectData[projectId][lang];
         
-        // 设置模态框内容
         modalTitle.textContent = project.title;
         
-        // 添加项目描述
         const modalDescription = document.getElementById('modal-description');
         if (modalDescription && project.description) {
             modalDescription.textContent = project.description;
         }
         
-        // 添加项目截图
         const screenshotsContainer = document.getElementById('project-screenshots');
         if (screenshotsContainer && project.screenshots && project.screenshots.length > 0) {
             screenshotsContainer.innerHTML = '';
@@ -181,7 +175,6 @@ function openProjectModal(projectId) {
             });
         }
         
-        // 添加项目特性
         const featuresContainer = document.getElementById('project-features');
         if (featuresContainer && project.features && project.features.length > 0) {
             featuresContainer.innerHTML = '';
@@ -194,7 +187,6 @@ function openProjectModal(projectId) {
             featuresContainer.appendChild(featuresList);
         }
         
-        // 设置 GitHub 链接
         const githubOption = document.querySelector('.support-option:not(.donate-option)');
         if (githubOption && project.githubUrl) {
             githubOption.onclick = () => {
@@ -203,10 +195,8 @@ function openProjectModal(projectId) {
             githubOption.style.cursor = 'pointer';
         }
         
-        // 显示模态框
         modal.style.display = 'block';
         
-        // 使用 requestAnimationFrame 确保 DOM 更新后再添加 show 类
         requestAnimationFrame(() => {
             modal.classList.add('show');
         });
@@ -214,6 +204,5 @@ function openProjectModal(projectId) {
         console.error(`Project data not found for: ${projectId}, language: ${lang}`);
     }
     
-    // 禁用背景滚动
     document.body.style.overflow = 'hidden';
 }

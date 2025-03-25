@@ -213,13 +213,17 @@ class I18n {
         const zhBtn = document.getElementById('zh-btn');
         const enBtn = document.getElementById('en-btn');
         
-        zhBtn.addEventListener('click', () => {
-            this.setLanguage('zh');
-        });
-        
-        enBtn.addEventListener('click', () => {
-            this.setLanguage('en');
-        });
+        if (zhBtn && enBtn) {
+            zhBtn.addEventListener('click', () => {
+                this.setLanguage('zh');
+            });
+            
+            enBtn.addEventListener('click', () => {
+                this.setLanguage('en');
+            });
+        } else {
+            console.error('Language switcher buttons not found');
+        }
     }
 }
 
