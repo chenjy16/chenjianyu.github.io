@@ -23,63 +23,88 @@
         </div>
     </header>
 
-    <!-- 项目部分 -->
+    <!-- 项目部分 - 重新设计 -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 data-i18n="projects.title">项目展示</h2>
-            <div class="project-grid">
-                <!-- RideFlow项目 -->
-                <div class="project-card">
+            
+            <!-- RideFlow项目 -->
+            <div class="project-detail">
+                <div class="project-header">
                     <h3 data-i18n="projects.rideflow.title">RideFlow</h3>
-                    <p data-i18n="projects.rideflow.description">一款智能出行应用，提供实时路况、智能导航和行程规划功能。</p>
                     <div class="project-links">
-                        <a href="https://apps.apple.com/us/app/rideflow/id6741391135?l=zh-Hans-CN" target="_blank" data-i18n="projects.rideflow.viewLink">查看应用</a>
-                        <a href="#" class="donate-link" data-project="rideflow" data-i18n="projects.rideflow.donateLink">支持项目</a>
+                        <a href="https://apps.apple.com/us/app/rideflow/id6741391135?l=zh-Hans-CN" target="_blank" class="app-link">
+                            <i class="fab fa-app-store-ios"></i> 
+                            <span data-i18n="projects.rideflow.viewLink">查看应用</span>
+                        </a>
+                        <a href="https://github.com/chenjy16/rideflow" target="_blank" class="github-link">
+                            <i class="fab fa-github"></i> 
+                            <span data-i18n="projects.starGithub">GitHub</span>
+                        </a>
                     </div>
                 </div>
                 
-                <!-- EdgeBox项目 -->
-                <div class="project-card">
+                <div class="project-content">
+                    <div class="project-info">
+                        <p class="project-description" data-i18n="projects.rideflow.description">一款智能出行应用，提供实时路况、智能导航和行程规划功能。</p>
+                        
+                        <h4 data-i18n="projects.features">功能特点</h4>
+                        <ul class="feature-list" id="rideflow-features">
+                            <li data-i18n="projects.rideflow.features.0">实时路况监测与预警</li>
+                            <li data-i18n="projects.rideflow.features.1">智能路线规划与导航</li>
+                            <li data-i18n="projects.rideflow.features.2">出行时间预测</li>
+                            <li data-i18n="projects.rideflow.features.3">多种交通方式整合</li>
+                            <li data-i18n="projects.rideflow.features.4">个性化出行建议</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-screenshots">
+                        <img src="assets/images/projects/rideflow-1.png" alt="RideFlow 截图1" class="screenshot">
+                        <img src="assets/images/projects/rideflow-2.png" alt="RideFlow 截图2" class="screenshot">
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="project-divider">
+            
+            <!-- EdgeBox项目 -->
+            <div class="project-detail">
+                <div class="project-header">
                     <h3 data-i18n="projects.edgebox.title">EdgeBox</h3>
-                    <p data-i18n="projects.edgebox.description">边缘计算工具箱，提供设备AI LLM 下载 部署 运行功能。</p>
                     <div class="project-links">
-                        <a href="https://apps.apple.com/us/app/edgebox/id6742104587?l=zh-Hans-CN" target="_blank" data-i18n="projects.edgebox.viewLink">查看应用</a>
-                        <a href="#" class="donate-link" data-project="edgebox" data-i18n="projects.edgebox.donateLink">支持项目</a>
+                        <a href="https://apps.apple.com/us/app/edgebox/id6742104587?l=zh-Hans-CN" target="_blank" class="app-link">
+                            <i class="fab fa-app-store-ios"></i> 
+                            <span data-i18n="projects.edgebox.viewLink">查看应用</span>
+                        </a>
+                        <a href="https://github.com/chenjy16/edgebox" target="_blank" class="github-link">
+                            <i class="fab fa-github"></i> 
+                            <span data-i18n="projects.starGithub">GitHub</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-content">
+                    <div class="project-info">
+                        <p class="project-description" data-i18n="projects.edgebox.description">边缘计算工具箱，提供设备AI LLM 下载 部署 运行功能。</p>
+                        
+                        <h4 data-i18n="projects.features">功能特点</h4>
+                        <ul class="feature-list" id="edgebox-features">
+                            <li data-i18n="projects.edgebox.features.0">本地AI模型部署与执行</li>
+                            <li data-i18n="projects.edgebox.features.1">离线大语言模型(LLM)使用</li>
+                            <li data-i18n="projects.edgebox.features.2">设备资源监控与优化</li>
+                            <li data-i18n="projects.edgebox.features.3">边缘计算任务调度</li>
+                            <li data-i18n="projects.edgebox.features.4">多设备协同计算</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="project-screenshots">
+                        <img src="assets/images/projects/edgebox-1.png" alt="EdgeBox 截图1" class="screenshot">
+                        <img src="assets/images/projects/edgebox-2.png" alt="EdgeBox 截图2" class="screenshot">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- 项目详情弹窗 -->
-    <!-- 在footer之前添加项目模态框 -->
-    <div id="project-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modal-title"></h2>
-            <div class="modal-body">
-                <div class="project-support">
-                    <h3 data-i18n="projects.support">支持项目</h3>
-                    <p data-i18n="projects.supportDescription">如果您觉得这个项目对您有帮助，可以通过以下方式支持我们：</p>
-                    <div class="support-options">
-                        <div class="support-option">
-                            <i class="fas fa-star"></i>
-                            <p data-i18n="projects.starGithub">在GitHub上Star</p>
-                        </div>
-                        <div class="support-option">
-                            <i class="fas fa-share-alt"></i>
-                            <p data-i18n="projects.shareProject">分享给朋友</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- 其他模态框内容保持不变 -->
-                <p id="modal-description"></p>
-                <div id="project-screenshots"></div>
-                <div id="project-features"></div>
-            </div>
-        </div>
-    </div>
 
     <!-- 工作经历部分 -->
     <section id="experience" class="experience">
@@ -134,7 +159,6 @@
         </div>
     </section>
 
-    <!-- 在页面底部添加i18n.js引用 -->
     <footer>
         <div class="container">
             <p data-i18n="footer.copyright">&copy; 2025 chenjy. 保留所有权利。</p>
@@ -149,7 +173,6 @@
 
     <!-- 简化脚本加载方式 -->
     <script src="assets/js/i18n.js"></script>
-    <script src="assets/js/project-modal.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 </html>

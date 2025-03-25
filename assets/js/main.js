@@ -55,4 +55,26 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     createBackToTopButton();
+    
+    // 添加动画效果
+    const addAnimations = () => {
+        const elements = document.querySelectorAll('.project-detail, .timeline-item');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        elements.forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    };
+    
+    // 页面加载完成后添加动画
+    setTimeout(addAnimations, 500);
 });
