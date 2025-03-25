@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
+
     // 将 closeProjectModal 函数移到全局作用域
     function closeProjectModal() {
         const modal = document.getElementById('project-modal');

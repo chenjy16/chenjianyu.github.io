@@ -7,19 +7,49 @@ class I18n {
 
     async init() {
         try {
+            // 添加加载状态提示
+            const loadingMessage = document.createElement('div');
+            loadingMessage.className = 'loading-message';
+            loadingMessage.textContent = '正在加载语言文件...';
+            loadingMessage.style.position = 'fixed';
+            loadingMessage.style.top = '10px';
+            loadingMessage.style.left = '50%';
+            loadingMessage.style.transform = 'translateX(-50%)';
+            loadingMessage.style.backgroundColor = '#4a6cf7';
+            loadingMessage.style.color = 'white';
+            loadingMessage.style.padding = '10px 20px';
+            loadingMessage.style.borderRadius = '4px';
+            loadingMessage.style.zIndex = '1000';
+            document.body.appendChild(loadingMessage);
+            
             // 加载中文翻译
             const zhResponse = await fetch('assets/js/i18n/zh.json');
             if (!zhResponse.ok) {
                 throw new Error(`Failed to load zh.json: ${zhResponse.status}`);
             }
-            this.translations.zh = await zhResponse.json();
+            
+            try {
+                this.translations.zh = await zhResponse.json();
+            } catch (jsonError) {
+                console.error('Error parsing zh.json:', jsonError);
+                throw new Error('zh.json 格式错误，请检查JSON语法');
+            }
             
             // 加载英文翻译
             const enResponse = await fetch('assets/js/i18n/en.json');
             if (!enResponse.ok) {
                 throw new Error(`Failed to load en.json: ${enResponse.status}`);
             }
-            this.translations.en = await enResponse.json();
+            
+            try {
+                this.translations.en = await enResponse.json();
+            } catch (jsonError) {
+                console.error('Error parsing en.json:', jsonError);
+                throw new Error('en.json 格式错误，请检查JSON语法');
+            }
+            
+            // 移除加载提示
+            loadingMessage.remove();
             
             // 初始化页面语言
             this.setLanguage(this.currentLang);
@@ -29,7 +59,7 @@ class I18n {
         } catch (error) {
             console.error('Failed to load translations:', error);
             // 显示错误提示给用户
-            this.showErrorMessage('无法加载语言文件，请刷新页面重试。');
+            this.showErrorMessage('无法加载语言文件，请刷新页面重试。详细错误: ' + error.message);
         }
     }
 

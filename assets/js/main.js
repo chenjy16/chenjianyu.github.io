@@ -7,9 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 500);
     }
     
-    // 初始化国际化
-    const i18n = new I18n();
-    i18n.init();
+    // 移除重复的i18n初始化
+    // const i18n = new I18n();
+    // i18n.init();
     
     // 平滑滚动效果
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
