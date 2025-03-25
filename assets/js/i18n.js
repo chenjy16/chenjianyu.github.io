@@ -36,7 +36,7 @@ class I18n {
                             "多设备协同计算"
                         ]
                     },
-                    starGithub: 'GitHub'
+                    starGithub: '支持项目'
                 },
                 experience: {
                     title: '工作经历',
@@ -107,7 +107,7 @@ class I18n {
                             "Multi-device collaborative computing"
                         ]
                     },
-                    starGithub: 'GitHub'
+                    starGithub: 'GitHubSupport Project'
                 },
                 experience: {
                     title: 'Work Experience',
