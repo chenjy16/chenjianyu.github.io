@@ -199,6 +199,123 @@ class I18n {
             this.showErrorMessage('无法加载语言文件，请刷新页面重试。详细错误: ' + error.message);
         }
     }
+    
+    // 将这些方法移到类内部
+    setupLanguageSwitcher() {
+        const zhBtn = document.getElementById('zh-btn');
+        const enBtn = document.getElementById('en-btn');
+        
+        if (zhBtn && enBtn) {
+            zhBtn.addEventListener('click', () => {
+                this.setLanguage('zh');
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+            });
+            
+            enBtn.addEventListener('click', () => {
+                this.setLanguage('en');
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+            });
+            
+            // 根据当前语言设置按钮状态
+            if (this.currentLang === 'zh') {
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+            } else {
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+            }
+        } else {
+            console.error('语言切换按钮未找到');
+        }
+    }
+
+    setLanguage(lang) {
+        if (lang !== 'zh' && lang !== 'en') {
+            console.error('不支持的语言:', lang);
+            return;
+        }
+        
+        this.currentLang = lang;
+        localStorage.setItem('language', lang);
+        
+        // 获取所有带有 data-i18n 属性的元素
+        const elements = document.querySelectorAll('[data-i18n]');
+        
+        elements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const translation = this.getTranslation(key, lang);
+            
+            if (translation) {
+                // 对于标题元素，设置其文本内容
+                if (el.tagName === 'TITLE') {
+                    el.textContent = translation;
+                } 
+                // 对于输入元素，设置其 placeholder
+                else if (el.tagName === 'INPUT' && el.hasAttribute('placeholder')) {
+                    el.setAttribute('placeholder', translation);
+                } 
+                // 对于其他元素，设置其内部 HTML
+                else {
+                    el.textContent = translation;
+                }
+            }
+        });
+        
+        console.log(`语言已切换为: ${lang}`);
+    }
+
+    getTranslation(key, lang) {
+        // 尝试从加载的翻译中获取
+        if (this.translations[lang]) {
+            const value = this.getNestedTranslation(this.translations[lang], key);
+            if (value !== undefined) return value;
+        }
+        
+        // 回退到内置翻译
+        if (this.fallbackTranslations[lang]) {
+            const value = this.getNestedTranslation(this.fallbackTranslations[lang], key);
+            if (value !== undefined) return value;
+        }
+        
+        // 如果找不到翻译，返回键名
+        console.warn(`未找到翻译: ${key} (${lang})`);
+        return key;
+    }
+
+    getNestedTranslation(obj, path) {
+        const keys = path.split('.');
+        let current = obj;
+        
+        for (const key of keys) {
+            if (current === undefined || current === null) return undefined;
+            
+            // 处理数组索引，例如 "projects.rideflow.features.0"
+            if (/^\d+$/.test(key) && Array.isArray(current)) {
+                current = current[parseInt(key, 10)];
+            } else {
+                current = current[key];
+            }
+        }
+        
+        return current;
+    }
+    
+    // 添加错误消息显示方法
+    showErrorMessage(message) {
+        console.error(message);
+        // 可以在页面上显示错误消息
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        document.body.appendChild(errorDiv);
+        
+        // 3秒后自动移除错误消息
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 3000);
+    }
 }
 
 // 初始化I18n实例

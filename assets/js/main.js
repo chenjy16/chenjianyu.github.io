@@ -1,13 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 页面加载完成后隐藏加载动画
-    const loader = document.querySelector('.loader');
-    if (loader) {
-        setTimeout(() => {
-            loader.classList.add('hidden');
-        }, 500);
-    }
-    
-    // 移除重复的i18n初始化
+    // 使用已经初始化的 i18n 实例，而不是创建新实例
     // const i18n = new I18n();
     // i18n.init();
     
