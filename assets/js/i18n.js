@@ -3,61 +3,132 @@ class I18n {
     constructor() {
         this.translations = {};
         this.currentLang = localStorage.getItem('language') || 'zh';
-    }
-
-    async loadTranslation(lang, retries = 3) {
-        for (let i = 0; i < retries; i++) {
-            try {
-                // 先尝试从本地缓存获取
-                const cached = this.getCachedTranslation(lang);
-                if (cached) {
-                    console.log(`Using cached translation for ${lang}`);
-                    return cached;
+        
+        // 基本翻译作为回退
+        this.fallbackTranslations = {
+            zh: {
+                pageTitle: 'chenjy的个人主页',
+                nav: { projects: '项目展示', experience: '工作经历' },
+                projects: { 
+                    title: '项目展示',
+                    rideflow: { 
+                        title: 'RideFlow',
+                        description: '一款智能出行应用，提供实时路况、智能导航和行程规划功能。',
+                        viewLink: '查看应用',
+                        donateLink: '支持项目'
+                    },
+                    edgebox: {
+                        title: 'EdgeBox',
+                        description: '边缘计算工具箱，提供设备AI LLM 下载 部署 运行功能。',
+                        viewLink: '查看应用',
+                        donateLink: '支持项目'
+                    },
+                    support: '支持项目',
+                    supportDescription: '如果您觉得这个项目对您有帮助，可以通过以下方式支持我们：',
+                    starGithub: '在GitHub上Star',
+                    shareProject: '分享给朋友'
+                },
+                experience: {
+                    title: '工作经历',
+                    jobs: {
+                        1: {
+                            period: '2022/11 - 2023/09',
+                            title: '技术架构负责人',
+                            company: '华宝新能',
+                            description: '负责公司整个系统基础架构设计，推动技术委员会组织建设并管理日常运作。主导华宝数字化云原生平台建设，推动便携储能产品和移动式家庭储能新品类开发。'
+                        },
+                        2: {
+                            period: '2020/09 - 2022/08',
+                            title: '技术经理',
+                            company: 'Castlery',
+                            description: '负责公司整个供应链系统架构设计和全球部署方案，推动供应链系统的智能化。制定研发流程，持续集成和持续部署方案设计。'
+                        },
+                        3: {
+                            period: '2018/11 - 2020/07',
+                            title: '资深架构师',
+                            company: '深圳平安信息技术有限公司',
+                            description: '负责平安智慧养老平台的C端项目整体架构设计、技术选型及制定开发流程。'
+                        },
+                        4: {
+                            period: '2014/08 - 2018/06',
+                            title: '开发组长',
+                            company: '美的电商',
+                            description: '负责电商平台的技术开发和团队管理工作。'
+                        },
+                        5: {
+                            period: '2011/06 - 2014/08',
+                            title: '高级开发工程师',
+                            company: '苏宁北京研发中心',
+                            description: '负责闪拍项目核心功能模块开发和项目进度管理，开发Dal组件等基础设施。'
+                        }
+                    }
+                },
+                footer: {
+                    copyright: '© 2025 chenjy. 保留所有权利。'
                 }
-                
-                // 如果没有缓存，从服务器加载
-                const response = await fetch(`assets/js/i18n/${lang}.json`);
-                if (!response.ok) throw new Error(`HTTP error ${response.status}`);
-                
-                const data = await response.json();
-                // 缓存翻译数据
-                this.setCachedTranslation(lang, data);
-                return data;
-            } catch (error) {
-                console.error(`Attempt ${i+1}/${retries} failed:`, error);
-                if (i === retries - 1) throw error;
-                // 等待一段时间再重试
-                await new Promise(resolve => setTimeout(resolve, 1000));
-            }
-        }
-    }
-
-    // 从本地存储获取缓存的翻译
-    getCachedTranslation(lang) {
-        const cached = localStorage.getItem(`i18n_${lang}_cache`);
-        if (cached) {
-            try {
-                const data = JSON.parse(cached);
-                const timestamp = localStorage.getItem(`i18n_${lang}_timestamp`);
-                // 缓存有效期为1天
-                if (timestamp && (Date.now() - parseInt(timestamp)) < 86400000) {
-                    return data;
+            },
+            en: {
+                pageTitle: "Jianyu Chen's Personal Website",
+                nav: { projects: 'Projects', experience: 'Experience' },
+                projects: { 
+                    title: 'Projects',
+                    rideflow: { 
+                        title: 'RideFlow',
+                        description: 'A smart travel application providing real-time traffic conditions, intelligent navigation, and trip planning features.',
+                        viewLink: 'View App',
+                        donateLink: 'Support Project'
+                    },
+                    edgebox: {
+                        title: 'EdgeBox',
+                        description: 'Edge computing toolbox offering AI LLM download, deployment, and execution capabilities.',
+                        viewLink: 'View App',
+                        donateLink: 'Support Project'
+                    },
+                    support: 'Support Project',
+                    supportDescription: 'If you find this project helpful, you can support us in the following ways:',
+                    starGithub: 'Star on GitHub',
+                    shareProject: 'Share with Friends'
+                },
+                experience: {
+                    title: 'Work Experience',
+                    jobs: {
+                        1: {
+                            period: '2022/11 - 2023/09',
+                            title: 'Technical Architecture Lead',
+                            company: 'Huabao New Energy',
+                            description: 'Responsible for the company\'s overall system infrastructure design, promoting the organization of the technical committee and managing daily operations. Led the construction of Huabao\'s digital cloud-native platform, promoting the development of portable energy storage products and mobile home energy storage new categories.'
+                        },
+                        2: {
+                            period: '2020/09 - 2022/08',
+                            title: 'Technical Manager',
+                            company: 'Castlery',
+                            description: 'Responsible for the company\'s entire supply chain system architecture design and global deployment plan, promoting the intelligence of the supply chain system. Formulate R&D processes, continuous integration and continuous deployment solution design.'
+                        },
+                        3: {
+                            period: '2018/11 - 2020/07',
+                            title: 'Senior Architect',
+                            company: 'Shenzhen Ping An Information Technology Co., Ltd.',
+                            description: 'Responsible for the overall architecture design, technology selection and development process formulation of the C-end project of Ping An Smart Pension Platform.'
+                        },
+                        4: {
+                            period: '2014/08 - 2018/06',
+                            title: 'Development Team Leader',
+                            company: 'Midea E-commerce',
+                            description: 'Responsible for the technical development and team management of the e-commerce platform.'
+                        },
+                        5: {
+                            period: '2011/06 - 2014/08',
+                            title: 'Senior Development Engineer',
+                            company: 'Suning Beijing R&D Center',
+                            description: 'Responsible for the development of core functional modules of the flash auction project and project progress management, and the development of Dal components and other infrastructure.'
+                        }
+                    }
+                },
+                footer: {
+                    copyright: '© 2025 chenjy. All rights reserved.'
                 }
-            } catch (e) {
-                console.error('Failed to parse cached translation:', e);
             }
-        }
-        return null;
-    }
-
-    // 将翻译缓存到本地存储
-    setCachedTranslation(lang, data) {
-        try {
-            localStorage.setItem(`i18n_${lang}_cache`, JSON.stringify(data));
-            localStorage.setItem(`i18n_${lang}_timestamp`, Date.now().toString());
-        } catch (e) {
-            console.error('Failed to cache translation:', e);
-        }
+        };
     }
 
     async init() {
@@ -77,27 +148,23 @@ class I18n {
             loadingMessage.style.zIndex = '1000';
             document.body.appendChild(loadingMessage);
             
-            // 使用 loadTranslation 方法加载翻译
+            // 直接使用内置的基本翻译
+            this.translations.zh = this.fallbackTranslations.zh;
+            this.translations.en = this.fallbackTranslations.en;
+            
+            // 尝试从服务器加载更完整的翻译
             try {
-                this.translations.zh = await this.loadTranslation('zh');
+                const zhData = await fetch('assets/js/i18n/zh.json').then(res => res.json());
+                this.translations.zh = {...this.translations.zh, ...zhData};
             } catch (e) {
-                console.error('Failed to load zh translation:', e);
-                // 使用内置的基本翻译作为回退
-                this.translations.zh = {
-                    pageTitle: 'chenjy的个人主页',
-                    nav: { about: '关于我', skills: '技能专长', projects: '项目展示', experience: '工作经历', contact: '联系我' }
-                };
+                console.warn('Using fallback zh translation');
             }
             
             try {
-                this.translations.en = await this.loadTranslation('en');
+                const enData = await fetch('assets/js/i18n/en.json').then(res => res.json());
+                this.translations.en = {...this.translations.en, ...enData};
             } catch (e) {
-                console.error('Failed to load en translation:', e);
-                // 使用内置的基本翻译作为回退
-                this.translations.en = {
-                    pageTitle: "Jianyu Chen's Personal Website",
-                    nav: { about: 'About Me', skills: 'Skills', projects: 'Projects', experience: 'Experience', contact: 'Contact' }
-                };
+                console.warn('Using fallback en translation');
             }
             
             // 移除加载提示
@@ -196,13 +263,7 @@ class I18n {
             if (translation && translation[k] !== undefined) {
                 translation = translation[k];
             } else {
-                // 检查是否是数组索引
-                const arrayMatch = k.match(/^(\d+)$/);
-                if (arrayMatch && Array.isArray(translation) && translation[parseInt(arrayMatch[1])] !== undefined) {
-                    translation = translation[parseInt(arrayMatch[1])];
-                } else {
-                    return null;
-                }
+                return null;
             }
         }
         
@@ -212,9 +273,6 @@ class I18n {
     setupLanguageSwitcher() {
         const zhBtn = document.getElementById('zh-btn');
         const enBtn = document.getElementById('en-btn');
-        
-        console.log('zhBtn:', zhBtn);
-        console.log('enBtn:', enBtn);
         
         if (zhBtn && enBtn) {
             zhBtn.addEventListener('click', () => {
@@ -226,8 +284,12 @@ class I18n {
             });
         } else {
             console.error('Language switcher buttons not found');
-            // 添加错误处理，避免在按钮不存在时报错
-            this.showErrorMessage('语言切换按钮未找到，部分功能可能不可用');
         }
     }
 }
+
+// 初始化I18n实例
+document.addEventListener('DOMContentLoaded', () => {
+    window.i18n = new I18n();
+    window.i18n.init();
+});

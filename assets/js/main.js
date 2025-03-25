@@ -55,26 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     
     createBackToTopButton();
-    
-    // 添加滚动动画
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.skill-category, .project-card, .timeline-item');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        elements.forEach(element => {
-            observer.observe(element);
-        });
-    };
-    
-    animateOnScroll();
 });
