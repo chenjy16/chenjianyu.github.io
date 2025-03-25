@@ -5,6 +5,62 @@ class I18n {
         this.currentLang = localStorage.getItem('language') || 'zh';
     }
 
+    async loadTranslation(lang, retries = 3) {
+        for (let i = 0; i < retries; i++) {
+            try {
+                // 先尝试从本地缓存获取
+                const cached = this.getCachedTranslation(lang);
+                if (cached) {
+                    console.log(`Using cached translation for ${lang}`);
+                    return cached;
+                }
+                
+                // 如果没有缓存，从服务器加载
+                const response = await fetch(`assets/js/i18n/${lang}.json`);
+                if (!response.ok) throw new Error(`HTTP error ${response.status}`);
+                
+                const data = await response.json();
+                // 缓存翻译数据
+                this.setCachedTranslation(lang, data);
+                return data;
+            } catch (error) {
+                console.error(`Attempt ${i+1}/${retries} failed:`, error);
+                if (i === retries - 1) throw error;
+                // 等待一段时间再重试
+                await new Promise(resolve => setTimeout(resolve, 1000));
+            }
+        }
+    }
+
+    // 从本地存储获取缓存的翻译
+    getCachedTranslation(lang) {
+        const cached = localStorage.getItem(`i18n_${lang}_cache`);
+        if (cached) {
+            try {
+                const data = JSON.parse(cached);
+                const timestamp = localStorage.getItem(`i18n_${lang}_timestamp`);
+                // 缓存有效期为1天
+                if (timestamp && (Date.now() - parseInt(timestamp)) < 86400000) {
+                    return data;
+                }
+            } catch (e) {
+                console.error('Failed to parse cached translation:', e);
+            }
+        }
+        return null;
+    }
+
+    // 将翻译缓存到本地存储
+    setCachedTranslation(lang, data) {
+        try {
+            localStorage.setItem(`i18n_${lang}_cache`, JSON.stringify(data));
+            localStorage.setItem(`i18n_${lang}_timestamp`, Date.now().toString());
+        } catch (e) {
+            console.error('Failed to cache translation:', e);
+        }
+    }
+
+    // 修改 init 方法使用新的加载函数
     async init() {
         try {
             // 添加加载状态提示
@@ -113,7 +169,14 @@ class I18n {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
         });
-        document.getElementById(`${lang}-btn`).classList.add('active');
+        
+        // 添加错误处理
+        const activeBtn = document.getElementById(`${lang}-btn`);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        } else {
+            console.warn(`Language button for ${lang} not found`);
+        }
         
         // 更新HTML lang属性
         document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
