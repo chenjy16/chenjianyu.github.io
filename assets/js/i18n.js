@@ -6,6 +6,7 @@ class I18n {
         
         // 基本翻译作为回退
         this.fallbackTranslations = {
+            // 在 fallbackTranslations 的 zh 对象中添加
             zh: {
                 pageTitle: 'chenjy的个人主页',
                 nav: { projects: '项目展示', experience: '工作经历' },
@@ -36,7 +37,8 @@ class I18n {
                             "多设备协同计算"
                         ]
                     },
-                    starGithub: '支持项目'
+                    starGithub: '支持项目',
+                    donate: '捐赠支持'
                 },
                 experience: {
                     title: '工作经历',
@@ -77,6 +79,7 @@ class I18n {
                     copyright: '© 2025 chenjy. 保留所有权利。'
                 }
             },
+            // 在 fallbackTranslations 的 en 对象中添加
             en: {
                 pageTitle: "Jianyu Chen's Personal Website",
                 nav: { projects: 'Projects', experience: 'Experience' },
@@ -107,7 +110,8 @@ class I18n {
                             "Multi-device collaborative computing"
                         ]
                     },
-                    starGithub: 'GitHubSupport Project'
+                    starGithub: 'GitHubSupport Project',
+                    donate: 'Buy me a coffee'
                 },
                 experience: {
                     title: 'Work Experience',

@@ -792,9 +792,44 @@ footer {
 .skip-to-content:focus {
     top: 0;
 }
-/* 添加到现有CSS文件末尾 */
+/* Buy Me a Coffee 按钮样式 */
+.bmc-btn-container {
+    display: inline-block;
+}
 
-/* 新的项目展示样式 */
+.bmc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    background-color: #FF813F;
+    color: white;
+}
+
+.bmc-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ff6a1f;
+    color: white;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .project-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .bmc-btn-container {
+        margin-top: 10px;
+    }
+}
+
 .project-detail {
     background-color: var(--card-background);
     border-radius: 8px;

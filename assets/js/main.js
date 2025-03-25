@@ -77,4 +77,28 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 页面加载完成后添加动画
     setTimeout(addAnimations, 500);
+    
+    // 初始化 Buy Me a Coffee 按钮
+    const initBuyMeCoffeeButtons = () => {
+        // 如果原生的 BMC 按钮已加载，则使用它们的样式
+        if (typeof(window.BmcButton) !== 'undefined') {
+            document.querySelectorAll('.bmc-btn').forEach(btn => {
+                new window.BmcButton().init({
+                    element: btn,
+                    name: btn.getAttribute('data-name'),
+                    slug: btn.getAttribute('data-slug'),
+                    color: btn.getAttribute('data-color'),
+                    emoji: btn.getAttribute('data-emoji'),
+                    font: btn.getAttribute('data-font'),
+                    text: btn.getAttribute('data-text'),
+                    outline_color: btn.getAttribute('data-outline-color'),
+                    font_color: btn.getAttribute('data-font-color'),
+                    coffee_color: btn.getAttribute('data-coffee-color')
+                });
+            });
+        }
+    };
+    
+    // 页面加载完成后初始化 Buy Me a Coffee 按钮
+    setTimeout(initBuyMeCoffeeButtons, 1000);
 });
