@@ -122,6 +122,3 @@
     "copyright": "© 2025 Jianyu Chen. All rights reserved."
   }
 }
-// 在 projects 对象中添加
-"wechatPay": "WeChat Pay",
-"alipay": "Alipay"
