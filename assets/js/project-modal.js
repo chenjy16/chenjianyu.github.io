@@ -116,16 +116,26 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const projectId = link.getAttribute('data-project');
-            openProjectModal(projectId);
+            if (projectId) {
+                openProjectModal(projectId);
+            } else {
+                console.error('Missing data-project attribute on donate link');
+            }
         });
     });
+});
+
+// 打开项目模态框
+function openProjectModal(projectId) {
+    // 获取模态框元素
+    const modal = document.getElementById('project-modal');
+    const modalTitle = document.getElementById('modal-title');
     
-    // 打开项目模态框
-    function openProjectModal(projectId) {
-        // 获取当前语言
-        const currentLang = document.documentElement.lang.startsWith('zh') ? 'zh' : 'en';
-        
-        // 获取项目数据
+    // 获取当前语言
+    const currentLang = document.documentElement.lang.startsWith('zh') ? 'zh' : 'en';
+    
+    // 获取项目数据
+    if (projectData && projectData[projectId] && projectData[projectId][currentLang]) {
         const project = projectData[projectId][currentLang];
         
         // 设置模态框内容
@@ -136,5 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(() => {
             modal.classList.add('show');
         }, 10);
+    } else {
+        console.error(`Project data not found for: ${projectId}, language: ${currentLang}`);
     }
-});
+}

@@ -241,21 +241,20 @@ header {
 }
 
 .modal.show {
-    display: block;
     opacity: 1;
 }
 
 .modal-content {
-    background-color: var(--background-color);
+    background-color: var(--background-color, #fff);
     margin: 5% auto;
     padding: 30px;
     border-radius: 8px;
     width: 80%;
     max-width: 900px;
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
     transform: translateY(-20px);
     transition: transform 0.3s ease;
-    position: relative;
 }
 
 .modal.show .modal-content {
@@ -268,49 +267,12 @@ header {
     top: 15px;
     font-size: 28px;
     font-weight: bold;
-    color: var(--text-color);
+    color: var(--text-color, #333);
     cursor: pointer;
 }
 
-.close-modal:hover {
-    color: var(--primary-color);
-}
-
-.project-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-bottom: 30px;
-}
-
-.project-screenshots {
-    flex: 1;
-    min-width: 300px;
-}
-
-.project-screenshots img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.project-description {
-    flex: 1;
-    min-width: 300px;
-}
-
-.project-description ul {
-    padding-left: 20px;
-    margin-bottom: 20px;
-}
-
-.project-description li {
-    margin-bottom: 8px;
-}
-
 .project-support {
-    border-top: 1px solid var(--border-color);
-    padding-top: 20px;
+    margin-top: 20px;
 }
 
 .support-options {
@@ -326,19 +288,9 @@ header {
     text-align: center;
     padding: 15px;
     border-radius: 8px;
-    background-color: var(--card-background);
+    background-color: var(--card-background, #f8f9fa);
     transition: transform 0.3s ease;
     cursor: pointer;
-}
-
-.support-option:hover {
-    transform: translateY(-5px);
-}
-
-.support-option i {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 10px;
 }
 
 .donate-option {
@@ -351,7 +303,7 @@ header {
     top: 100%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--background-color);
+    background-color: var(--background-color, #fff);
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);

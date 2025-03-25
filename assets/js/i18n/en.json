@@ -39,11 +39,10 @@
       ]
     },
     "mobile": {
-      "title": "Mobile Development",
+      "title": "Independent Development Experience",
       "items": [
-        "Independent iOS development experience",
-        "Developed applications like EdgeBox and PetVital",
-        "Cross-platform application development"
+        "EdgeBox",
+        "PetVital"
       ]
     }
   },
