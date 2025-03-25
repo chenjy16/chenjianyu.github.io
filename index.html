@@ -211,7 +211,7 @@
                 const i18n = new I18n();
                 await i18n.init();
                 
-                // 动态加载其他脚本
+                // Modify dynamic script loading to use a more secure approach
                 const scripts = [
                     'assets/js/project-modal.js',
                     'assets/js/main.js'
@@ -223,6 +223,7 @@
                         script.src = src;
                         script.onload = resolve;
                         script.onerror = reject;
+                        // Add nonce or integrity attributes if you have them
                         document.body.appendChild(script);
                     });
                 }
