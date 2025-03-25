@@ -52,6 +52,7 @@
     </section>
 
     <!-- 项目详情弹窗 -->
+    <!-- 在footer之前添加项目模态框 -->
     <div id="project-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -140,59 +141,15 @@
         </div>
     </footer>
 
-    <!-- 使用单一的脚本加载方式 -->
+    <!-- 添加语言切换按钮 -->
+    <div class="language-switcher">
+        <button id="zh-btn" class="lang-btn active">中文</button>
+        <button id="en-btn" class="lang-btn">English</button>
+    </div>
+
+    <!-- 简化脚本加载方式 -->
     <script src="assets/js/i18n.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                const i18n = new I18n();
-                await i18n.init();
-                
-                const scripts = [
-                    'assets/js/project-modal.js',
-                    'assets/js/main.js'
-                ];
-                
-                for (const src of scripts) {
-                    await new Promise((resolve, reject) => {
-                        const script = document.createElement('script');
-                        script.src = src;
-                        script.onload = resolve;
-                        script.onerror = reject;
-                        document.body.appendChild(script);
-                    });
-                }
-            } catch (error) {
-                console.error('Failed to initialize:', error);
-                const errorMessage = document.createElement('div');
-                errorMessage.style.position = 'fixed';
-                errorMessage.style.top = '50%';
-                errorMessage.style.left = '50%';
-                errorMessage.style.transform = 'translate(-50%, -50%)';
-                errorMessage.style.backgroundColor = '#f44336';
-                errorMessage.style.color = 'white';
-                errorMessage.style.padding = '20px';
-                errorMessage.style.borderRadius = '4px';
-                errorMessage.style.zIndex = '2000';
-                errorMessage.style.maxWidth = '80%';
-                errorMessage.style.textAlign = 'center';
-                errorMessage.innerHTML = `
-                    <h3>页面加载出错</h3>
-                    <p>${error.message}</p>
-                    <button onclick="location.reload()" style="margin-top:10px;padding:5px 10px;cursor:pointer;">刷新页面</button>
-                `;
-                document.body.appendChild(errorMessage);
-                
-                document.documentElement.lang = 'zh';
-                document.title = 'chenjy的个人主页';
-            }
-        });
-    </script>
+    <script src="assets/js/project-modal.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
-
-<!-- 将语言切换按钮移到这里，在footer之后，script之前 -->
-<div class="language-switcher">
-    <button id="zh-btn" class="lang-btn active">中文</button>
-    <button id="en-btn" class="lang-btn">English</button>
-</div>
