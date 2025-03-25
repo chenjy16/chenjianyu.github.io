@@ -123,3 +123,6 @@
     "copyright": "© 2025 chenjy. 保留所有权利。"
   }
 }
+// 在 projects 对象中添加
+"wechatPay": "微信支付",
+"alipay": "支付宝"

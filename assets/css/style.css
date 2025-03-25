@@ -269,6 +269,12 @@ header {
     font-weight: bold;
     color: var(--text-color, #333);
     cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    color: var(--primary-color, #4a6cf7);
 }
 
 .project-support {

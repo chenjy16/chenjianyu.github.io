@@ -94,19 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // 关闭模态框
     closeModal.addEventListener('click', () => {
-        modal.classList.remove('show');
-        setTimeout(() => {
-            modal.style.display = 'none';
-        }, 300);
+        closeProjectModal();
     });
     
     // 点击模态框外部关闭
     window.addEventListener('click', (event) => {
         if (event.target === modal) {
-            modal.classList.remove('show');
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
+            closeProjectModal();
         }
     });
     
@@ -123,6 +117,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    
+    // 将 closeProjectModal 函数移到全局作用域
+    function closeProjectModal() {
+        const modal = document.getElementById('project-modal');
+        modal.classList.remove('show');
+        
+        // 恢复背景滚动
+        document.body.style.overflow = '';
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300);
+    }
+    
+    // 添加键盘事件处理
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            const modal = document.getElementById('project-modal');
+            if (modal.style.display === 'block') {
+                closeProjectModal();
+            }
+        }
+    });
 });
 
 // 打开项目模态框
@@ -132,21 +149,36 @@ function openProjectModal(projectId) {
     const modalTitle = document.getElementById('modal-title');
     
     // 获取当前语言
-    const currentLang = document.documentElement.lang.startsWith('zh') ? 'zh' : 'en';
+    const currentLang = document.documentElement.lang || 'zh';
+    const lang = currentLang.startsWith('zh') ? 'zh' : 'en';
     
     // 获取项目数据
-    if (projectData && projectData[projectId] && projectData[projectId][currentLang]) {
-        const project = projectData[projectId][currentLang];
+    if (projectData && projectData[projectId] && projectData[projectId][lang]) {
+        const project = projectData[projectId][lang];
         
         // 设置模态框内容
         modalTitle.textContent = project.title;
         
+        // 设置 GitHub 链接
+        const githubOption = document.querySelector('.support-option:not(.donate-option)');
+        if (githubOption && project.githubUrl) {
+            githubOption.onclick = () => {
+                window.open(project.githubUrl, '_blank');
+            };
+            githubOption.style.cursor = 'pointer';
+        }
+        
         // 显示模态框
         modal.style.display = 'block';
-        setTimeout(() => {
+        
+        // 使用 requestAnimationFrame 确保 DOM 更新后再添加 show 类
+        requestAnimationFrame(() => {
             modal.classList.add('show');
-        }, 10);
+        });
     } else {
-        console.error(`Project data not found for: ${projectId}, language: ${currentLang}`);
+        console.error(`Project data not found for: ${projectId}, language: ${lang}`);
     }
+    
+    // 禁用背景滚动
+    document.body.style.overflow = 'hidden';
 }
