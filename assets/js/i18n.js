@@ -213,6 +213,9 @@ class I18n {
         const zhBtn = document.getElementById('zh-btn');
         const enBtn = document.getElementById('en-btn');
         
+        console.log('zhBtn:', zhBtn);
+        console.log('enBtn:', enBtn);
+        
         if (zhBtn && enBtn) {
             zhBtn.addEventListener('click', () => {
                 this.setLanguage('zh');
@@ -223,12 +226,8 @@ class I18n {
             });
         } else {
             console.error('Language switcher buttons not found');
+            // 添加错误处理，避免在按钮不存在时报错
+            this.showErrorMessage('语言切换按钮未找到，部分功能可能不可用');
         }
     }
 }
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const i18n = new I18n();
-    i18n.init();
-});
