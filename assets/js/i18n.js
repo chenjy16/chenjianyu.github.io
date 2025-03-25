@@ -169,13 +169,9 @@ class I18n {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.remove('active');
         });
-        
-        // 添加错误处理
         const activeBtn = document.getElementById(`${lang}-btn`);
         if (activeBtn) {
             activeBtn.classList.add('active');
-        } else {
-            console.warn(`Language button for ${lang} not found`);
         }
         
         // 更新HTML lang属性
