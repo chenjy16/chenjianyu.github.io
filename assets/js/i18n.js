@@ -60,7 +60,6 @@ class I18n {
         }
     }
 
-    // 修改 init 方法使用新的加载函数
     async init() {
         try {
             // 添加加载状态提示
@@ -78,31 +77,9 @@ class I18n {
             loadingMessage.style.zIndex = '1000';
             document.body.appendChild(loadingMessage);
             
-            // 加载中文翻译
-            const zhResponse = await fetch('assets/js/i18n/zh.json');
-            if (!zhResponse.ok) {
-                throw new Error(`Failed to load zh.json: ${zhResponse.status}`);
-            }
-            
-            try {
-                this.translations.zh = await zhResponse.json();
-            } catch (jsonError) {
-                console.error('Error parsing zh.json:', jsonError);
-                throw new Error('zh.json 格式错误，请检查JSON语法');
-            }
-            
-            // 加载英文翻译
-            const enResponse = await fetch('assets/js/i18n/en.json');
-            if (!enResponse.ok) {
-                throw new Error(`Failed to load en.json: ${enResponse.status}`);
-            }
-            
-            try {
-                this.translations.en = await enResponse.json();
-            } catch (jsonError) {
-                console.error('Error parsing en.json:', jsonError);
-                throw new Error('en.json 格式错误，请检查JSON语法');
-            }
+            // 使用 loadTranslation 方法加载翻译
+            this.translations.zh = await this.loadTranslation('zh');
+            this.translations.en = await this.loadTranslation('en');
             
             // 移除加载提示
             loadingMessage.remove();
@@ -172,6 +149,8 @@ class I18n {
         const activeBtn = document.getElementById(`${lang}-btn`);
         if (activeBtn) {
             activeBtn.classList.add('active');
+        } else {
+            console.warn(`Language button for ${lang} not found`);
         }
         
         // 更新HTML lang属性
@@ -229,8 +208,7 @@ class I18n {
     }
 }
 
-// 删除这部分重复的初始化代码
-// 页面加载完成后初始化国际化
+
 document.addEventListener('DOMContentLoaded', () => {
     const i18n = new I18n();
     i18n.init();

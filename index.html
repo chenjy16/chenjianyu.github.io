@@ -228,6 +228,29 @@
                 }
             } catch (error) {
                 console.error('Failed to initialize:', error);
+                // 添加用户友好的错误提示
+                const errorMessage = document.createElement('div');
+                errorMessage.style.position = 'fixed';
+                errorMessage.style.top = '50%';
+                errorMessage.style.left = '50%';
+                errorMessage.style.transform = 'translate(-50%, -50%)';
+                errorMessage.style.backgroundColor = '#f44336';
+                errorMessage.style.color = 'white';
+                errorMessage.style.padding = '20px';
+                errorMessage.style.borderRadius = '4px';
+                errorMessage.style.zIndex = '2000';
+                errorMessage.style.maxWidth = '80%';
+                errorMessage.style.textAlign = 'center';
+                errorMessage.innerHTML = `
+                    <h3>页面加载出错</h3>
+                    <p>${error.message}</p>
+                    <button onclick="location.reload()" style="margin-top:10px;padding:5px 10px;cursor:pointer;">刷新页面</button>
+                `;
+                document.body.appendChild(errorMessage);
+                
+                // 紧急恢复机制
+                document.documentElement.lang = 'zh';
+                document.title = 'chenjy的个人主页';
             }
         });
     </script>
