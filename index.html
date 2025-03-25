@@ -108,6 +108,7 @@
     </section>
 
     <!-- 项目详情弹窗 (移除重复的注释) -->
+    <!-- 项目详情弹窗 -->
     <div id="project-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -121,22 +122,14 @@
                             <i class="fas fa-star"></i>
                             <p data-i18n="projects.starGithub">在GitHub上Star</p>
                         </div>
-                        <div class="support-option donate-option">
-                            <i class="fas fa-gift"></i>
-                            <p data-i18n="projects.donateProject">捐赠支持</p>
-                            <div class="qr-codes">
-                                <div class="qr-code">
-                                    <img src="assets/images/wechat-pay.png" alt="微信支付" class="qr-image">
-                                    <p data-i18n="projects.wechatPay">微信支付</p>
-                                </div>
-                                <div class="qr-code">
-                                    <img src="assets/images/alipay.png" alt="支付宝" class="qr-image">
-                                    <p data-i18n="projects.alipay">支付宝</p>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- 移除了捐赠选项和二维码部分 -->
                     </div>
                 </div>
+                
+                <!-- 其他模态框内容保持不变 -->
+                <p id="modal-description"></p>
+                <div id="project-screenshots"></div>
+                <div id="project-features"></div>
             </div>
         </div>
     </div>

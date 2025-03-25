@@ -86,6 +86,8 @@ const projectData = {
     }
 };
 
+// 项目详情数据保持不变
+
 document.addEventListener('DOMContentLoaded', () => {
     // 获取模态框元素
     const modal = document.getElementById('project-modal');
@@ -104,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // 为捐赠链接添加点击事件
+    // 为捐赠链接添加点击事件 - 可以保留这部分，但修改功能为只打开项目详情
     const donateLinks = document.querySelectorAll('.donate-link');
     donateLinks.forEach(link => {
         link.addEventListener('click', (e) => {
@@ -159,6 +161,38 @@ function openProjectModal(projectId) {
         
         // 设置模态框内容
         modalTitle.textContent = project.title;
+        
+        // 添加项目描述
+        const modalDescription = document.getElementById('modal-description');
+        if (modalDescription && project.description) {
+            modalDescription.textContent = project.description;
+        }
+        
+        // 添加项目截图
+        const screenshotsContainer = document.getElementById('project-screenshots');
+        if (screenshotsContainer && project.screenshots && project.screenshots.length > 0) {
+            screenshotsContainer.innerHTML = '';
+            project.screenshots.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = project.title;
+                img.className = 'project-screenshot';
+                screenshotsContainer.appendChild(img);
+            });
+        }
+        
+        // 添加项目特性
+        const featuresContainer = document.getElementById('project-features');
+        if (featuresContainer && project.features && project.features.length > 0) {
+            featuresContainer.innerHTML = '';
+            const featuresList = document.createElement('ul');
+            project.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.textContent = feature;
+                featuresList.appendChild(li);
+            });
+            featuresContainer.appendChild(featuresList);
+        }
         
         // 设置 GitHub 链接
         const githubOption = document.querySelector('.support-option:not(.donate-option)');

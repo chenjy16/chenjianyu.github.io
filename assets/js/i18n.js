@@ -78,8 +78,27 @@ class I18n {
             document.body.appendChild(loadingMessage);
             
             // 使用 loadTranslation 方法加载翻译
-            this.translations.zh = await this.loadTranslation('zh');
-            this.translations.en = await this.loadTranslation('en');
+            try {
+                this.translations.zh = await this.loadTranslation('zh');
+            } catch (e) {
+                console.error('Failed to load zh translation:', e);
+                // 使用内置的基本翻译作为回退
+                this.translations.zh = {
+                    pageTitle: 'chenjy的个人主页',
+                    nav: { about: '关于我', skills: '技能专长', projects: '项目展示', experience: '工作经历', contact: '联系我' }
+                };
+            }
+            
+            try {
+                this.translations.en = await this.loadTranslation('en');
+            } catch (e) {
+                console.error('Failed to load en translation:', e);
+                // 使用内置的基本翻译作为回退
+                this.translations.en = {
+                    pageTitle: "Jianyu Chen's Personal Website",
+                    nav: { about: 'About Me', skills: 'Skills', projects: 'Projects', experience: 'Experience', contact: 'Contact' }
+                };
+            }
             
             // 移除加载提示
             loadingMessage.remove();
