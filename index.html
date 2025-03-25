@@ -91,7 +91,6 @@
                     <div class="project-links">
                         <a href="https://apps.apple.com/us/app/rideflow/id6741391135?l=zh-Hans-CN" target="_blank" data-i18n="projects.rideflow.viewLink">查看应用</a>
                         <a href="#" class="donate-link" target="_blank" data-i18n="projects.rideflow.donateLink">支持项目</a>
-                        <button class="more-info-btn" data-project="rideflow" data-i18n="projects.moreInfo">了解更多</button>
                     </div>
                 </div>
                 
@@ -102,7 +101,6 @@
                     <div class="project-links">
                         <a href="https://apps.apple.com/us/app/edgebox/id6742104587?l=zh-Hans-CN" target="_blank" data-i18n="projects.edgebox.viewLink">查看应用</a>
                         <a href="#" class="donate-link" target="_blank" data-i18n="projects.edgebox.donateLink">支持项目</a>
-                        <button class="more-info-btn" data-project="edgebox" data-i18n="projects.moreInfo">了解更多</button>
                     </div>
                 </div>
             </div>
@@ -110,23 +108,12 @@
     </section>
 
     <!-- 项目详情弹窗 -->
+    <!-- 项目详情弹窗 -->
     <div id="project-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h2 id="modal-title"></h2>
             <div class="modal-body">
-                <div class="project-details">
-                    <div class="project-screenshots">
-                        <!-- 项目截图将通过JS动态加载 -->
-                    </div>
-                    <div class="project-description">
-                        <h3 data-i18n="projects.features">功能特点</h3>
-                        <ul id="project-features"></ul>
-                        
-                        <h3 data-i18n="projects.technologies">技术栈</h3>
-                        <ul id="project-technologies"></ul>
-                    </div>
-                </div>
                 <div class="project-support">
                     <h3 data-i18n="projects.support">支持项目</h3>
                     <p data-i18n="projects.supportDescription">如果您觉得这个项目对您有帮助，可以通过以下方式支持我们：</p>
@@ -134,10 +121,6 @@
                         <div class="support-option">
                             <i class="fas fa-star"></i>
                             <p data-i18n="projects.starGithub">在GitHub上Star</p>
-                        </div>
-                        <div class="support-option">
-                            <i class="fas fa-share-alt"></i>
-                            <p data-i18n="projects.shareProject">分享给朋友</p>
                         </div>
                         <div class="support-option donate-option">
                             <i class="fas fa-gift"></i>

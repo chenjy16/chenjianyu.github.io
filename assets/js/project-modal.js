@@ -90,21 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 获取模态框元素
     const modal = document.getElementById('project-modal');
     const modalTitle = document.getElementById('modal-title');
-    const projectFeatures = document.getElementById('project-features');
-    const projectTechnologies = document.getElementById('project-technologies');
-    const projectScreenshots = document.querySelector('.project-screenshots');
     const closeModal = document.querySelector('.close-modal');
-    
-    // 获取所有"了解更多"按钮
-    const moreInfoButtons = document.querySelectorAll('.more-info-btn');
-    
-    // 为每个按钮添加点击事件
-    moreInfoButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const projectId = button.getAttribute('data-project');
-            openProjectModal(projectId);
-        });
-    });
     
     // 关闭模态框
     closeModal.addEventListener('click', () => {
@@ -124,6 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
+    // 为捐赠链接添加点击事件
+    const donateLinks = document.querySelectorAll('.donate-link');
+    donateLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const projectId = link.getAttribute('data-project');
+            openProjectModal(projectId);
+        });
+    });
+    
     // 打开项目模态框
     function openProjectModal(projectId) {
         // 获取当前语言
@@ -135,47 +131,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // 设置模态框内容
         modalTitle.textContent = project.title;
         
-        // 清空并添加项目特点
-        projectFeatures.innerHTML = '';
-        project.features.forEach(feature => {
-            const li = document.createElement('li');
-            li.textContent = feature;
-            projectFeatures.appendChild(li);
-        });
-        
-        // 清空并添加技术栈
-        projectTechnologies.innerHTML = '';
-        project.technologies.forEach(tech => {
-            const li = document.createElement('li');
-            li.textContent = tech;
-            projectTechnologies.appendChild(li);
-        });
-        
-        // 清空并添加项目截图
-        projectScreenshots.innerHTML = '';
-        project.screenshots.forEach(screenshot => {
-            const img = document.createElement('img');
-            img.src = screenshot;
-            img.alt = project.title;
-            projectScreenshots.appendChild(img);
-        });
-        
         // 显示模态框
         modal.style.display = 'block';
         setTimeout(() => {
             modal.classList.add('show');
         }, 10);
     }
-    
-    // 为捐赠链接添加点击事件
-    const donateLinks = document.querySelectorAll('.donate-link');
-    donateLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const projectId = link.closest('.project-card').querySelector('.more-info-btn').getAttribute('data-project');
-            openProjectModal(projectId);
-            // 滚动到捐赠部分
-            document.querySelector('.project-support').scrollIntoView({ behavior: 'smooth' });
-        });
-    });
 });
