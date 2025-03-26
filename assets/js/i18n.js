@@ -18,11 +18,11 @@ class I18n {
                         description: '一款智能出行应用，提供实时路况、智能导航和行程规划功能。',
                         viewLink: '查看应用',
                         features: [
-                            "实时路况监测与预警",
-                            "智能路线规划与导航",
-                            "出行时间预测",
-                            "多种交通方式整合",
-                            "个性化出行建议"
+                            " 实时骑行数据监测",
+                            "智能语音播报",
+                            "骑行记录与分析",
+                            "定时播报",
+                            "AI大模型支持"
                         ]
                     },
                     edgebox: {
@@ -88,14 +88,14 @@ class I18n {
                     features: 'Features',
                     rideflow: { 
                         title: 'RideFlow',
-                        description: 'A smart travel application providing real-time traffic conditions, intelligent navigation, and trip planning features.',
+                        description: 'Whether you are commuting daily, enjoying a weekend ride, or training professionally, RideFlow is your perfect cycling companion.',
                         viewLink: 'View App',
                         features: [
-                            "Real-time traffic monitoring and alerts",
-                            "Intelligent route planning and navigation",
-                            "Travel time prediction",
-                            "Multiple transportation modes integration",
-                            "Personalized travel recommendations"
+                            "Real-time Cycling Data Monitoring",
+                            "Smart Voice Announcements",
+                            "Ride Recording & Analysis",
+                            "Scheduled Announcements",
+                            "AI-powered Features "
                         ]
                     },
                     edgebox: {

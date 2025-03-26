@@ -54,12 +54,12 @@
     "technologies": "技术栈",
     "support": "支持项目",
     "supportDescription": "如果您觉得这个项目对您有帮助，可以通过以下方式支持我们：",
-    "starGithub": "在GitHub上Star",
+    "starGithub": "GitHub",
     "shareProject": "分享给朋友",
     "donateProject": "捐赠支持",
     "rideflow": {
       "title": "RideFlow",
-      "description": "一款智能出行应用，提供实时路况、智能导航和行程规划功能。",
+      "description": "一款日常通勤、周末休闲骑行还是专业训练，RideFlow都是您的理想骑行伴侣",
       "viewLink": "查看应用",
       "donateLink": "支持项目"
     },
