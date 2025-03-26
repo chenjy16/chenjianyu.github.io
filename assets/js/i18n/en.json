@@ -53,9 +53,9 @@
     "technologies": "Technologies",
     "support": "Support Project",
     "supportDescription": "If you find this project helpful, you can support us in the following ways:",
-    "starGithub": "Star on GitHub",
+    "starGithub": "GitHub",
     "shareProject": "Share with Friends",
-    "donateProject": "Donate",
+    "donate": "Buy me a coffee",
     "rideflow": {
       "title": "RideFlow",
       "description": "Whether you're commuting daily, enjoying a weekend ride, or training professionally, RideFlow is your perfect cycling companion.",
