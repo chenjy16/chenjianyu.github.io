@@ -68,6 +68,17 @@
       "description": "边缘计算工具箱，提供设备AI LLM 下载 部署 运行功能。",
       "viewLink": "查看应用",
       "donateLink": "支持项目"
+    },
+    "echodiary": {
+      "title": "EchoDiary",
+      "description": "智能语音日记应用，支持语音记录、情感分析和日记管理功能。",
+      "features": {
+        "0": "语音转文字日记记录",
+        "1": "AI情感分析与标签",
+        "2": "日记内容智能归类",
+        "3": "隐私保护与加密存储",
+        "4": "回顾与记忆提醒"
+      }
     }
   },
   "experience": {

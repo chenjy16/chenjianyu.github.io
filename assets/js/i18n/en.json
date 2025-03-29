@@ -67,6 +67,17 @@
       "description": "Edge computing toolbox offering AI LLM download, deployment, and execution capabilities.",
       "viewLink": "View App",
       "donateLink": "Support Project"
+    },    
+    "echodiary": {
+      "title": "EchoDiary",
+      "description": "Intelligent voice diary application supporting voice recording, emotion analysis, and diary management.",
+      "features": {
+        "0": "Voice-to-text diary recording",
+        "1": "AI emotion analysis and tagging",
+        "2": "Smart diary content categorization",
+        "3": "Privacy protection and encrypted storage",
+        "4": "Reflection and memory reminders"
+      }
     }
   },
   "experience": {
